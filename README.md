@@ -1,4 +1,4 @@
-# Node Server Boilerplate
+# Node Server JSGuru test
 
 ## Prerequisite
  - Node >= 16
