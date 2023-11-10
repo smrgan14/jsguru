@@ -36,6 +36,7 @@ const productValidation = Joi.object({
       'number.base': 'Product quantity must be a number',
       'number.min': 'Min number of product quantity is 1',
       'any.required': 'Product quantity is required',
+      'string.pattern.base': 'Allowe only number',
     }),
 });
 
