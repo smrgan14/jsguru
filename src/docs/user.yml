@@ -1,0 +1,61 @@
+openapi: "3.0.3"
+servers:
+  - url: https://localhost:2000/v1
+paths:
+  /user/register:
+    post:
+      summary: Insert user.
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  required: true
+                lastName:
+                  type: string
+                  required: true
+                email:
+                  type: string
+                  required: true
+                password:
+                  type: string
+                  required: true
+                phone:
+                  type: string
+                  required: true
+      responses:
+        "201":
+          description: Created
+        "403":
+          description: Forbidden
+        "500":
+          description: Server Error
+  /user/login:
+    post:
+      summary: Login
+      tags:
+        - User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Server Error

@@ -1,0 +1,84 @@
+openapi: "3.0.3"
+servers:
+  - url: https://localhost:2000/v1
+paths:
+  /products:
+    post:
+      summary: 'Insert product'
+      tags:
+        - Product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  required: true
+                description:
+                  type: string
+                  required: true
+                price:
+                  type: number
+                  required: true
+                quantity:
+                  type: number
+                  required: true
+      responses:
+        "201":
+          description: Created
+        "403":
+          description: Forbidden
+        "500":
+          description: Server Error
+      
+    get:
+      summary: Get list of products
+      tags:
+        - Product
+      responses:
+        "201":
+          description: Created
+        "403":
+          description: Forbidden
+        "500":
+          description: Server Error
+  /products/{uuid}:
+    get:
+      summary: Get product by UUID
+      tags:
+        - Product
+      parameters:
+        - name: uuid
+          description: Product uuid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+        "403":
+          description: Forbidden
+        "500":
+          description: Server Error
+  /product/{uuid}:
+    delete:
+      summary: Delete product
+      tags:
+       - Product
+      parameters:
+        - name: uuid
+          description: Product uuid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Created
+        "403":
+          description: Forbidden
+        "500":
+          description: Server Error
